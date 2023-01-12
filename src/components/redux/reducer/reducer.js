@@ -1,6 +1,6 @@
 import {addTask,deleteTask,updateTask} from '../actions/actions';
 
-const initialState = [{id:1,payload:"task 1 is to configure the store"}]
+const initialState = []
 
 export const todoReducer =(state = initialState,action)=>{
     switch(action.type){

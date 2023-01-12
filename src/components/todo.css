@@ -22,7 +22,34 @@
 
 .todo__task{
     width:70%;
-    height: 200px;
-    background-color: black;
+    height: 100vh;
+    text-align: center;
+    background-color: rgb(162, 162, 162);
     margin-inline:auto ;
+    display: grid;
+    align-content: center;
+    gap: 10px;
+    
+}
+.task__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width:80%;
+    height: 100px;
+    background-color: aquamarine;
+    margin-inline: auto;
+}
+.task{
+    margin-right: auto;
+    margin-left: 0px;
+    
+    width: 80%;
+    text-align: start;
+    padding-left: 30px;
+}
+.delete{
+    width: 32px;
+    height: 32px;
 }
