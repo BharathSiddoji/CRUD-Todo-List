@@ -1,16 +1,19 @@
 import React,{useRef} from 'react'
 import './todo.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { add_Todo } from './redux/actions/actions'
-import TodoTasks from './TodoTasks';
+import { add_Todo,delete_Todo } from './redux/actions/actions'
 
 
 const Todo = () => {
     const actionDispatch = useDispatch()
     const tasks = useSelector((state)=>state.todoReducer)
     let valueOfInput = useRef()
-    
-    
+    const deleteDispatch = useDispatch()
+    const delteHandler =(itemId)=>{
+      const filtered = tasks.filter((each)=>itemId !==each.id)
+      console.log(filtered)
+      deleteDispatch(delete_Todo(filtered))
+    }
     
     const formHandler =(e)=>{
         e.preventDefault()
@@ -36,8 +39,14 @@ const Todo = () => {
         <input type="submit" value="submit" className='form__btn'/>
        </form>
 
-      {tasks.length <=0 ? null:<TodoTasks />}
      
+      <div className='todo__task'>
+        {tasks.map((each)=><div key={each.id} className="task__container">
+            <p className="task">{each.payload}</p>
+            <button className='delete' onClick={()=>{delteHandler(each.id)}} >X</button>
+            <button className='edit' >Edit</button>
+        </div>)}
+    </div>
     </div>
   )
 }
