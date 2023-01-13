@@ -9,7 +9,7 @@ export const todoReducer =(state = initialState,action)=>{
         case deleteTask:
             return [...action.payload]
         case updateTask:
-            return [...action.action]
+            return [...action.payload]
         default:return state
     }
 }
